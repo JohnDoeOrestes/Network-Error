@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Error - Technical Resources</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f5f5;
+            color: #212121;
+            line-height: 1.5;
+            font-size: 14px;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        /* Error Section */
+        .error-section {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 30px 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .error-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #f4b400;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 25px;
+        }
+        
+        .error-title {
+            font-size: 22px;
+            font-weight: normal;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .error-code {
+            font-family: 'Courier New', monospace;
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 25px;
+            padding-left: 2px;
+        }
+        
+        .error-description, .error-details {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .support-info {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 15px;
+            color: #333;
+        }
+        
+        .button-container {
+            margin-top: 30px;
+            display: flex;
+            gap: 12px;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 9px 18px;
+            background-color: #f8f9fa;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            color: #3c4043;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .button:hover {
+            background-color: #f1f3f4;
+        }
+        
+        .button-primary {
+            background-color: #1a73e8;
+            border-color: #1a73e8;
+            color: white;
+        }
+        
+        .button-primary:hover {
+            background-color: #0d62d9;
+        }
+        
+        /* PDF Downloads Section */
+        .downloads-section {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 30px 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: normal;
+            color: #333;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1a73e8;
+        }
+        
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .pdf-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            background-color: #fafafa;
+        }
+        
+        .pdf-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            border-color: #1a73e8;
+        }
+        
+        .pdf-icon {
+            font-size: 40px;
+            color: #d93025;
+            margin-bottom: 15px;
+        }
+        
+        .pdf-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+        
+        .pdf-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .download-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background-color: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        
+        .download-link:hover {
+            background-color: #0d62d9;
+        }
+        
+        .file-size {
+            font-size: 12px;
+            color: #70757a;
+            margin-top: 5px;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 13px;
+            color: #70757a;
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .error-section, .downloads-section {
+                padding: 20px;
+            }
+            
+            .downloads-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Error Section -->
+        <div class="error-section">
+            <div class="error-icon">!</div>
+            
+            <h1 class="error-title">Network Error (dns_server_failure)</h1>
+            
+            <div class="error-code">DNS_SERVER_FAILURE</div>
+            
+            <p class="error-description">
+                Your request could not be processed because an error occurred contacting the DNS server.
+            </p>
+            
+            <p class="error-details">
+                The DNS server may be temporarily unavailable, or there could be a network problem.
+            </p>
+            
+            <div class="support-info">
+                For assistance, contact your network support team.
+            </div>
+            
+            <div class="button-container">
+                <button class="button button-primary" onclick="location.reload()">Try again</button>
+                <button class="button" onclick="window.history.back()">Go back</button>
+            </div>
+        </div>
+        
+        <!-- PDF Downloads Section -->
+        <div class="downloads-section">
+            <h2 class="section-title">Technical Resources & Documentation</h2>
+            <p style="color: #666; margin-bottom: 20px; font-size: 15px;">
+                While we resolve the network issue, you can download these technical resources for troubleshooting:
+            </p>
+            
+            <div class="downloads-grid">
+                <!-- PDF 1 -->
+                <div class="pdf-card">
+                    <div class="pdf-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="pdf-title">Network Troubleshooting Guide</h3>
+                    <p class="pdf-description">
+                        Comprehensive guide to diagnose and resolve common network connectivity issues, 
+                        including DNS problems, connection drops, and latency issues.
+                    </p>
+                    <a href="/downloads/network-troubleshooting-guide.pdf" class="download-link" target="_blank">
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <div class="file-size">File size: 2.4 MB</div>
+                </div>
+                
+                <!-- PDF 2 -->
+                <div class="pdf-card">
+                    <div class="pdf-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="pdf-title">DNS Configuration Manual</h3>
+                    <p class="pdf-description">
+                        Complete manual for DNS server configuration, optimization, and troubleshooting. 
+                        Includes best practices for DNS security and performance tuning.
+                    </p>
+                    <a href="/downloads/dns-configuration-manual.pdf" class="download-link" target="_blank">
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <div class="file-size">File size: 3.1 MB</div>
+                </div>
+                
+                <!-- PDF 3 -->
+                <div class="pdf-card">
+                    <div class="pdf-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="pdf-title">Network Security Protocols</h3>
+                    <p class="pdf-description">
+                        Detailed explanation of network security protocols including TLS, HTTPS, 
+                        DNSSEC, and firewall configurations to protect against network attacks.
+                    </p>
+                    <a href="/downloads/network-security-protocols.pdf" class="download-link" target="_blank">
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <div class="file-size">File size: 4.7 MB</div>
+                </div>
+                
+                <!-- PDF 4 -->
+                <div class="pdf-card">
+                    <div class="pdf-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="pdf-title">Internet Connectivity Handbook</h3>
+                    <p class="pdf-description">
+                        Essential handbook covering all aspects of internet connectivity, 
+                        from basic setup to advanced troubleshooting techniques for IT professionals.
+                    </p>
+                    <a href="/downloads/internet-connectivity-handbook.pdf" class="download-link" target="_blank">
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <div class="file-size">File size: 5.2 MB</div>
+                </div>
+                
+                <!-- PDF 5 -->
+                <div class="pdf-card">
+                    <div class="pdf-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="pdf-title">Server Maintenance Checklist</h3>
+                    <p class="pdf-description">
+                        Monthly and quarterly server maintenance checklist to ensure optimal 
+                        performance, security updates, and prevent service interruptions.
+                    </p>
+                    <a href="/downloads/server-maintenance-checklist.pdf" class="download-link" target="_blank">
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <div class="file-size">File size: 1.8 MB</div>
+                </div>
+            </div>
+            
+            <!-- Link de ejemplo -->
+            <div style="margin-top: 30px; padding: 15px; background-color: #e8f0fe; border-radius: 6px; border-left: 4px solid #1a73e8;">
+                <h3 style="color: #1a73e8; margin-bottom: 10px; font-size: 16px;">
+                    <i class="fas fa-link"></i> Example Resource Link
+                </h3>
+                <p style="color: #333; margin-bottom: 10px; font-size: 14px;">
+                    For additional online resources about DNS troubleshooting, visit:
+                </p>
+                <a href="https://developers.google.com/speed/public-dns/docs/using" 
+                   target="_blank" 
+                   style="color: #1a73e8; text-decoration: none; font-weight: 500; font-size: 15px;">
+                    https://developers.google.com/speed/public-dns/docs/using
+                </a>
+                <p style="color: #666; margin-top: 8px; font-size: 13px;">
+                    This Google Public DNS documentation provides alternative DNS configuration instructions.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Error code: 105 (DNS_PROBE_FINISHED_BAD_CONFIG)</p>
+            <p style="margin-top: 10px;">If the problem persists, check your internet connection and DNS settings.</p>
+            <p style="margin-top: 10px; font-size: 12px;">Technical resources last updated: November 2023</p>
+        </div>
+    </div>
+
+    <script>
+        // Simulación del comportamiento típico de una página de error
+        document.addEventListener('DOMContentLoaded', function() {
+            // Añadir información de URL actual (simulada)
+            const url = window.location.href || "https://example.com/network-dashboard";
+            const urlElement = document.createElement('div');
+            urlElement.className = 'error-details';
+            urlElement.style.fontSize = '14px';
+            urlElement.style.color = '#70757a';
+            urlElement.style.marginTop = '10px';
+            urlElement.style.fontFamily = "'Courier New', monospace";
+            urlElement.textContent = `Failed URL: ${url}`;
+            
+            const errorCode = document.querySelector('.error-code');
+            errorCode.parentNode.insertBefore(urlElement, errorCode.nextSibling);
+            
+            // Añadir mensaje de diagnóstico adicional
+            const diagnosticInfo = document.createElement('div');
+            diagnosticInfo.className = 'error-details';
+            diagnosticInfo.style.fontSize = '13px';
+            diagnosticInfo.style.color = '#70757a';
+            diagnosticInfo.style.marginTop = '20px';
+            diagnosticInfo.style.padding = '10px';
+            diagnosticInfo.style.backgroundColor = '#f8f9fa';
+            diagnosticInfo.style.borderLeft = '3px solid #1a73e8';
+            diagnosticInfo.innerHTML = `
+                <strong>Diagnostic information:</strong><br>
+                • DNS server: 8.8.8.8 (Google DNS)<br>
+                • Request timed out after 3000ms<br>
+                • Last successful connection: 5 minutes ago<br>
+                • Network status: Connected (limited)
+            `;
+            
+            const supportInfo = document.querySelector('.support-info');
+            supportInfo.parentNode.insertBefore(diagnosticInfo, supportInfo);
+            
+            // Simular descargas de PDF (para demostración)
+            const downloadLinks = document.querySelectorAll('.download-link');
+            downloadLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Solo para demostración - en un entorno real aquí iría la descarga real
+                    console.log(`Initiating download: ${this.getAttribute('href')}`);
+                    
+                    // Simular que el archivo se está descargando
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Downloading...';
+                    this.style.backgroundColor = '#0d62d9';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.style.backgroundColor = '#1a73e8';
+                        alert('Download started! In a real application, the PDF file would begin downloading.');
+                    }, 1000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
